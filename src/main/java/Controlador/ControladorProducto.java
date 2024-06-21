@@ -36,14 +36,6 @@ public class ControladorProducto extends HttpServlet {
 		TBL_PRODUCTOCL2Imp crud=new TBL_PRODUCTOCL2Imp();
 		List<TBL_PRODUCTOCL2> listadoproducto=crud.ListarProducto();
 	
-for(TBL_PRODUCTOCL2 lis:listadoproducto){
-			
-			//imprimimos por pantalla
-			System.out.println("codigo "+lis.getIDPRODUCTOCL2()+
-					" Nombre "+lis.getNOMBRECL2()+" Precio Compra "+lis.getPRECIOCOMPCL2()+" Precio venta "+lis.getPRECIOVENTACL2()+" Estado "+lis.getESTADOCL2()+" descripcion "+lis.getDESCRIPCL2());
-			
-		}
-		
 		
 		request.setAttribute("listadoproductos",listadoproducto);	
 		//response.getWriter().append("Controlador Cliente ").append(request.getContextPath());

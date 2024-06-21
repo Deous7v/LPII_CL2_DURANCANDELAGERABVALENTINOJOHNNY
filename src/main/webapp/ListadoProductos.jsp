@@ -1,6 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ page import="java.util.List" %>
 <%@ page import="Modelo.TBL_PRODUCTOCL2" %>
 <!DOCTYPE html>
@@ -77,16 +75,25 @@
                 </tr>
             </thead>
             <tbody>
-                <c:forEach var="lis" items="${listadoproducto}">
+                <% 
+                List<TBL_PRODUCTOCL2> listadoproducto = (List<TBL_PRODUCTOCL2>) request.getAttribute("listadoproductos");
+                if (listadoproducto == null || listadoproducto.isEmpty()) { 
+                %>
                     <tr>
-                        <td>${lis.getIDPRODUCTOCL2()}</td>
-                        <td>${lis.getNOMBRECL2()}</td>
-                        <td>${lis.getPRECIOVENTACL2()}</td>
-                        <td>${lis.getPRECIOCOMPCL2()}</td>
-                        <td>${lis.getESTADOCL2()}</td>
-                        <td>${lis.getDESCRIPCL2()}</td>
+                        <td colspan="6" align="center">No se encontraron productos.</td>
                     </tr>
-                </c:forEach>
+                <% } else {
+                    for (TBL_PRODUCTOCL2 lis : listadoproducto) { 
+                %>
+                    <tr>
+                        <td><%= lis.getIDPRODUCTOCL2() %></td>
+                        <td><%= lis.getNOMBRECL2() %></td>
+                        <td><%= lis.getPRECIOVENTACL2() %></td>
+                        <td><%= lis.getPRECIOCOMPCL2() %></td>
+                        <td><%= lis.getESTADOCL2() %></td>
+                        <td><%= lis.getDESCRIPCL2() %></td>
+                    </tr>
+                <% } } %>
             </tbody>
         </table>
     </div>
