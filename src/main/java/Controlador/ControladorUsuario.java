@@ -16,24 +16,28 @@ public class ControladorUsuario extends HttpServlet {
      * @see HttpServlet#HttpServlet()
      */
     public ControladorUsuario() {
-        super();
+       // super();
         // TODO Auto-generated constructor stub
+    }   //fin del constructor...
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Mostrar el formulario de login
+        request.getRequestDispatcher("/Usuario.jsp").forward(request, response);
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String usuario = request.getParameter("usuario");
+        String password = request.getParameter("password");
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+        if (validarUsuario(usuario, password)) {
 
-}
+            response.sendRedirect("RegistrarProducto.jsp");
+        } else {
+            response.sendRedirect("Usuario.jsp?error=1");
+        }
+    }
+
+    private boolean validarUsuario(String usuario, String password) {
+        return "deous7v".equals(usuario) && "desey2005".equals(password);
+    } 
+  }

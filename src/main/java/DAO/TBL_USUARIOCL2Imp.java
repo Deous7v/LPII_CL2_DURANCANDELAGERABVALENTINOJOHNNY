@@ -4,25 +4,25 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import Interfaces.IProductos;
-import Modelo.TBL_PRODUCTOCL2;
+import Interfaces.IUsuario;
+import Modelo.TBL_USUARIOCL2;
 
-public class TBL_PRODUCTOCL2Imp implements IProductos {
+public class TBL_USUARIOCL2Imp implements IUsuario {
     private EntityManagerFactory emf;
     private EntityManager em;
 
-    public TBL_PRODUCTOCL2Imp() {
+    public TBL_USUARIOCL2Imp() {
         this.emf = Persistence.createEntityManagerFactory("LPII_CL2_DURANCANDELAGERABVALENTINOJOHNNY");
         this.em = emf.createEntityManager();
     }
 
     @Override
-    public void RegistrarProducto(TBL_PRODUCTOCL2 producto) {
+    public void RegistrarUsuario(TBL_USUARIOCL2 usuario) {
         try {
             em.getTransaction().begin();
-            em.persist(producto);
+            em.persist(usuario);
             em.getTransaction().commit();
-            System.out.println("Producto registrado en la base de datos");
+            System.out.println("Usuario registrado en la base de datos");
         } catch (Exception e) {
             if (em.getTransaction().isActive()) {
                 em.getTransaction().rollback();
@@ -32,35 +32,25 @@ public class TBL_PRODUCTOCL2Imp implements IProductos {
     }
 
     @Override
-    public void ActualizarProducto(TBL_PRODUCTOCL2 producto) {
+    public void ActualizarUsuario(TBL_USUARIOCL2 usuario) {
         // Implementación
     }
 
     @Override
-    public void EliminarProducto(TBL_PRODUCTOCL2 producto) {
+    public void EliminarUsuario(TBL_USUARIOCL2 usuario) {
         // Implementación
     }
 
     @Override
-    public TBL_PRODUCTOCL2 BuscarProducto(TBL_PRODUCTOCL2 producto) {
+    public TBL_USUARIOCL2 BuscarUsuario(TBL_USUARIOCL2 usuario) {
         // Implementación
         return null;
     }
 
     @Override
-    public List<TBL_PRODUCTOCL2> ListarProducto() {
-        List<TBL_PRODUCTOCL2> listado = null;
-        try {
-            em.getTransaction().begin();
-            listado = em.createQuery("selec c from TBL_PRODUCTOCL2 c", TBL_PRODUCTOCL2.class).getResultList();
-            em.getTransaction().commit();
-        } catch (Exception e) {
-            if (em.getTransaction().isActive()) {
-                em.getTransaction().rollback();
-            }
-            e.printStackTrace();
-        }
-        return listado;
+    public List<TBL_USUARIOCL2> ListarUsuario() {
+
+      return null;
     }
     
     // Cerrar el EntityManager cuando no se necesite más

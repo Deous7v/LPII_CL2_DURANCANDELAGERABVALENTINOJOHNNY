@@ -14,9 +14,10 @@ public class TestProducto {
 		TBL_PRODUCTOCL2Imp crud=new TBL_PRODUCTOCL2Imp();
 		//insertamos datos
 		
-		producto.setNOMBRECL2("Alex");
+		producto.setNOMBRECL2("AEA");
 		producto.setPRECIOCOMPCL2(0.0);
 		producto.setPRECIOVENTACL2(2.0);
+		producto.setESTADOCL2("Bien");
 		producto.setDESCRIPCL2("Chevere");
 		//invocamos el metodo registrar...
 		crud.RegistrarProducto(producto);
@@ -27,7 +28,7 @@ public class TestProducto {
 			
 			//imprimimos por pantalla
 			System.out.println("codigo "+lis.getIDPRODUCTOCL2()+
-					" Nombre "+lis.getNOMBRECL2()+" Precio Compra "+lis.getPRECIOCOMPCL2()+" Precio venta "+lis.getPRECIOVENTACL2()+" descripcion "+lis.getDESCRIPCL2());
+					" Nombre "+lis.getNOMBRECL2()+" Precio Compra "+lis.getPRECIOCOMPCL2()+" Precio venta "+lis.getPRECIOVENTACL2()+" Estado "+lis.getESTADOCL2()+" descripcion "+lis.getDESCRIPCL2());
 			
 		}    //fin del bucle for...
 		
