@@ -22,9 +22,9 @@ public class TestProducto {
 		//invocamos el metodo registrar...
 		crud.RegistrarProducto(producto);
 
-		List<TBL_PRODUCTOCL2> listado=crud.ListarProducto();
+		List<TBL_PRODUCTOCL2> listadoproducto=crud.ListarProducto();
 		//aplicamos un bucle
-		for(TBL_PRODUCTOCL2 lis:listado){
+		for(TBL_PRODUCTOCL2 lis:listadoproducto){
 			
 			//imprimimos por pantalla
 			System.out.println("codigo "+lis.getIDPRODUCTOCL2()+

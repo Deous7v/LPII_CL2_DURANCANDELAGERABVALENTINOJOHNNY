@@ -49,10 +49,10 @@ public class TBL_PRODUCTOCL2Imp implements IProductos {
 
     @Override
     public List<TBL_PRODUCTOCL2> ListarProducto() {
-        List<TBL_PRODUCTOCL2> listado = null;
+        List<TBL_PRODUCTOCL2> listadoproducto = null;
         try {
             em.getTransaction().begin();
-            listado = em.createQuery("selec c from TBL_PRODUCTOCL2 c", TBL_PRODUCTOCL2.class).getResultList();
+            listadoproducto = em.createQuery("selec c from TBL_PRODUCTOCL2 c", TBL_PRODUCTOCL2.class).getResultList();
             em.getTransaction().commit();
         } catch (Exception e) {
             if (em.getTransaction().isActive()) {
@@ -60,7 +60,7 @@ public class TBL_PRODUCTOCL2Imp implements IProductos {
             }
             e.printStackTrace();
         }
-        return listado;
+        return listadoproducto;
     }
     
     // Cerrar el EntityManager cuando no se necesite más

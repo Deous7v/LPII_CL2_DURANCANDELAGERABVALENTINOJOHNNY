@@ -30,19 +30,14 @@ public class ControladorProducto extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		TBL_PRODUCTOCL2 	producto=new TBL_PRODUCTOCL2();
-		TBL_PRODUCTOCL2Imp crud=new TBL_PRODUCTOCL2Imp();
-		List<TBL_PRODUCTOCL2> listadoproducto=crud.ListarProducto();
-	
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        TBL_PRODUCTOCL2Imp crud = new TBL_PRODUCTOCL2Imp();
+        List<TBL_PRODUCTOCL2> listadoproducto = crud.ListarProducto();
+        request.setAttribute("listadoproductos", listadoproducto);
+        request.getRequestDispatcher("/ListadoProductos.jsp").forward(request, response);
+    }
 		
-		request.setAttribute("listadoproductos",listadoproducto);	
-		//response.getWriter().append("Controlador Cliente ").append(request.getContextPath());
-	   //redireccionamos
-		request.getRequestDispatcher("/ListadoProductos.jsp").forward(request, response);
-	}
-
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
